@@ -1,0 +1,27 @@
+.add-joke {
+    font-family: "Hannotate SC", serif;
+    font-size: 19px;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    height: 100px;
+    width: 500px;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.body-joke {
+    font-size: 20px;
+}

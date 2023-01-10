@@ -1,0 +1,36 @@
+.add-like{
+    background: linear-gradient(180deg,#E9DC51 0%, #36A567 100%);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+.add-dislike{
+    font-size: 20px;
+    background: linear-gradient(180deg,#E9DC51 0%, #36A567 100%);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.rating{
+    font-size: 25px;
+    margin-top: 0;
+    margin-left: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.like {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 200px;
+}
+
+.dislike {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

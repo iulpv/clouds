@@ -13,6 +13,6 @@ yc sls container revisions deploy \
   --cores 1 \
   --execution-timeout 5s \
   --concurrency 4 \
-  --environment AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID},AWS_PRIVATE_KEY=${AWS_PRIVATE_KEY},DOCUMENT_API_ENDPOINT=${DOCUMENT_API_ENDPOINT} \
+  --environment AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID},AWS_PRIVATE_KEY=${AWS_PRIVATE_KEY},DOCUMENT_API_ENDPOINT=${DOCUMENT_API_ENDPOINT},VERSION=${version} \
   --service-account-id ${JOKE_SERVICE_ACCOUNT_ID} \
   --image ${JOKE_API_REPOSITORY_NAME}:${version}

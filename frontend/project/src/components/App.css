@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+}
+
+.show-joke {
+    font-family: "Hannotate SC", serif;
+    font-size: 19px;
+    color:  #004444;
+    background: white;
+    border-color: #36A567;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5%;
+    width: 80%;
+    height: 40px;
+}
+
+.Joke {
+    margin: 0 auto;
+    padding: 20px;
+    height: 300px;
+    width: 600px;
+    border: black dotted 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+header{
+    display: flex;
+    position: fixed;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    background: linear-gradient(180deg,#E9DC51 0%, #36A567 100%);
+    border-radius: 0 0 5px 5px;
+    height: 60px;
+    width: 99%;
+    margin: 0 auto;
+}
+.name{
+    font-family: "Hannotate SC", serif;
+    font-size: 30px;
+    color: #004444;
+    padding: 10px;
+}
+
+#content-centered{
+    justify-content: center;
+}
+
+.round-button{
+    position: fixed;
+    background: linear-gradient(180deg,#E9DC51 0%, #36A567 100%);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-top: 2%;
+    margin-left: 40%;
+    transition-duration: 0.2s;
+}
+
+.add-joke-button {
+    font-family: "Hannotate SC", serif;
+    font-size: 19px;
+    color:  #004444;
+    background: white;
+    border-color: #36A567;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 3%;
+    margin-top: 10px;
+    width: 80%;
+    height: 40px;
+}
+.joke-title {
+    font-size: 20px;
+    font-family: "Hannotate SC", serif;
+}

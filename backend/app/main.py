@@ -1,8 +1,10 @@
+import uuid
+
 import uvicorn
 from fastapi import FastAPI
 
 from db_client import DBClient
-from models import Joke
+from models import Joke, UserJoke
 from settings import Settings
 
 settings = Settings()
@@ -10,9 +12,9 @@ app = FastAPI()
 db_client = DBClient()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Joke api"}
+@app.get("/info")
+async def api_info():
+    return {"backend_version": settings.version, 'start_number': db_client.get_start_number()}
 
 
 @app.get("/joke")
@@ -22,9 +24,7 @@ async def get_joke():
             'title': joke.title,
             'body': joke.body,
             'likes': joke.likes,
-            'dislikes': joke.dislikes,
-            'backend_version': settings.version,
-            'start_number': db_client.get_start_number()}
+            'dislikes': joke.dislikes}
 
 
 @app.post("/joke/{joke_id}/like")
@@ -40,15 +40,14 @@ async def set_dislike_joke(joke_id: str):
 
 
 @app.post("/joke")
-async def post_joke(joke: Joke):
+async def post_joke(title: str, body: str):
+    joke = Joke(joke_id=str(uuid.uuid4()), title=title, body=body, likes=0, dislikes=0)
     db_client.save_joke(joke)
     return {'joke_id': joke.joke_id,
             'title': joke.title,
             'body': joke.body,
             'likes': joke.likes,
-            'dislikes': joke.dislikes,
-            'backend_version': settings.version,
-            'start_number': db_client.get_start_number()}
+            'dislikes': joke.dislikes}
 
 
 if __name__ == '__main__':
