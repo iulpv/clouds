@@ -1,9 +1,9 @@
 import uvicorn
 from fastapi import FastAPI
 
-from app.db_client import DBClient
-from app.models import Joke
-from app.settings import Settings
+from db_client import DBClient
+from models import Joke
+from settings import Settings
 
 settings = Settings()
 app = FastAPI()
@@ -52,4 +52,4 @@ async def post_joke(joke: Joke):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.1', port=8000)
+    uvicorn.run(app, host='127.0.0.1', port=8080)

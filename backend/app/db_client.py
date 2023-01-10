@@ -2,7 +2,7 @@ import random
 
 import boto3
 
-from app.models import Joke
+from models import Joke
 from settings import Settings
 
 settings = Settings()

@@ -1,0 +1,154 @@
+openapi: "3.0.0"
+info:
+  title: Joke API
+  version: 0.0.1
+
+x-yc-apigateway:
+  service_account_id: {JOKE_SERVICE_ACCOUNT_ID}
+
+paths:
+  /{file+}:
+    options:
+      parameters:
+        - name: file
+          in: path
+          description: greedy param
+          required: false
+          schema:
+            type: string
+      description: Greedy options
+      operationId: greedyOptions
+      x-yc-apigateway-integration:
+        type: dummy
+        http_code: 200
+        content:
+          "*": ""
+        http_headers:
+          Allow: OPTIONS, GET, HEAD, POST
+          Access-Control-Allow-Origin: '*'
+          Access-Control-Allow-Headers: Content-Type, Authorization
+  "/joke":
+    get:
+      summary: Get randon joke
+      operationId: joke_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/JokeOut"
+      x-yc-apigateway-integration:
+        type: serverless_containers
+        container_id: {JOKE_API_CONTAINER_ID}
+    post:
+      summary: Post joke
+      operationId: joke_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/JokeIn"
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/JokeOut"
+      x-yc-apigateway-integration:
+        type: serverless_containers
+        container_id: {JOKE_API_CONTAINER_ID}
+  "/joke/{jokeId}/like":
+    parameters:
+      - in: path
+        name: jokeId
+        schema:
+          type: string
+        required: true
+        description: joke id
+    post:
+      summary: inc joke likes
+      operationId: joke_post_like
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                properties:
+                  likes:
+                    type: integer
+      x-yc-apigateway-integration:
+        type: serverless_containers
+        container_id: {JOKE_API_CONTAINER_ID}
+  "/joke/{jokeId}/dislike":
+    parameters:
+      - in: path
+        name: jokeId
+        schema:
+          type: string
+        required: true
+        description: joke id
+    post:
+      summary: inc joke dislikes
+      operationId: joke_post_dislike
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                properties:
+                  dislikes:
+                    type: integer
+      x-yc-apigateway-integration:
+        type: serverless_containers
+        container_id: {JOKE_API_CONTAINER_ID}
+components:
+  schemas:
+    JokeIn:
+      required:
+      - joke_id
+      - title
+      - body
+      - likes
+      - dislikes
+      type: object
+      properties:
+        joke_id:
+          type: string
+        title:
+          type: string
+        body:
+          type: string
+        likes:
+          type: integer
+        dislikes:
+          type: integer
+    JokeOut:
+      required:
+        - joke_id
+        - title
+        - body
+        - likes
+        - dislikes
+        - backend_version
+        - start_number
+      type: object
+      properties:
+        joke_id:
+          type: string
+        title:
+          type: string
+        body:
+          type: string
+        likes:
+          type: integer
+        dislikes:
+          type: integer
+        backend_version:
+          type: string
+        start_number:
+          type: integer
