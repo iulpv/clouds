@@ -1,5 +1,6 @@
 # clouds
-
+https://joke-random.website.yandexcloud.net/
+https://d5dekkh1ufvfo08t7a9m.apigw.yandexcloud.net/
 
 
 1. export FOLDER_ID="<folder_id из облака>"
