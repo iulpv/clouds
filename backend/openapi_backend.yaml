@@ -27,6 +27,20 @@ paths:
           Allow: OPTIONS, GET, HEAD, POST
           Access-Control-Allow-Origin: '*'
           Access-Control-Allow-Headers: Content-Type, Authorization
+  "/info":
+    get:
+      summary: Get api info
+      operationId: info_het
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ApiInfo"
+      x-yc-apigateway-integration:
+        type: serverless_containers
+        container_id: bba14lksmonlh4lvi844
   "/joke":
     get:
       summary: Get randon joke
@@ -110,23 +124,14 @@ components:
   schemas:
     JokeIn:
       required:
-      - joke_id
       - title
       - body
-      - likes
-      - dislikes
       type: object
       properties:
-        joke_id:
-          type: string
         title:
           type: string
         body:
           type: string
-        likes:
-          type: integer
-        dislikes:
-          type: integer
     JokeOut:
       required:
         - joke_id
@@ -134,8 +139,6 @@ components:
         - body
         - likes
         - dislikes
-        - backend_version
-        - start_number
       type: object
       properties:
         joke_id:
@@ -148,6 +151,12 @@ components:
           type: integer
         dislikes:
           type: integer
+    ApiInfo:
+      required:
+        - backend_version
+        - start_number
+      type: object
+      properties:
         backend_version:
           type: string
         start_number:

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './add-joke.css'
 import {usePostJoke} from "../hooks/post-joke";
-import App from "./App";
+import MainPage from "./MainPage";
 
 
 export type UserJoke = {
@@ -15,7 +15,7 @@ function AddJoke() {
     const [send, setSend] = useState<boolean>(false)
     usePostJoke(data, send)
     if (send)
-        return <App/>
+        return <MainPage/>
     return (
         <form className="add-joke" onSubmit={(event) => {event.preventDefault(); setSend(!send)}}>
             <label>

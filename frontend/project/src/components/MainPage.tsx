@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './App.css';
+import './MainPage.css';
 import {useGetJoke} from "../hooks/get-joke";
 import Joke from "./joke";
 import JokeRating from "./joke-rating";
@@ -13,7 +13,7 @@ export type JokeType = {
   "likes": number,
   "dislikes": number,
 }
-function App() {
+function MainPage() {
   const [joke, setJoke] = useState<JokeType | null>(null)
   const [isShow, setShow] = useState<boolean>(false)
   const [next, setNext] = useState<number>(0)
@@ -44,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default MainPage;

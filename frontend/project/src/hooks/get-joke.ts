@@ -1,10 +1,10 @@
-import {makeRequest} from "../functions";
+import {sendRequest} from "../functions";
 import {useEffect} from "react";
 
 export function useGetJoke(setJoke : Function, isShow : boolean, next : number) {
         useEffect(() => {
             if (next > 0) {
-                makeRequest(`https://d5dntuvm58qq5d8kvmk1.apigw.yandexcloud.net/joke`, 'GET')
+                sendRequest(`https://d5dntuvm58qq5d8kvmk1.apigw.yandexcloud.net/joke`, 'GET')
                     .then(res => res.json())
                     .then(resJSON => {
                         setJoke({

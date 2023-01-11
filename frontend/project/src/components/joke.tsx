@@ -1,6 +1,6 @@
 import React from "react";
 import './joke.css'
-import {JokeType} from "./App";
+import {JokeType} from "./MainPage";
 
 export type JokeProps = {
     joke : JokeType | null
