@@ -6,6 +6,11 @@ import JokeRating from "./joke-rating";
 import AddJoke from "./add-joke";
 import {useGetInfo} from "../hooks/get-info";
 import version from '../../package.json'
+
+
+export const path = 'https://d5dqq0d0405o45hugs1u.apigw.yandexcloud.net';
+
+
 export type JokeType = {
   "joke_id": string,
   "title": string,

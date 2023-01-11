@@ -1,10 +1,11 @@
 import {sendRequest} from "../functions";
 import {useEffect} from "react";
+import {path} from "../components/main-page";
 
 export function useGetJoke(setJoke : Function, isShow : boolean, next : number) {
         useEffect(() => {
             if (next > 0) {
-                sendRequest(`https://d5dntuvm58qq5d8kvmk1.apigw.yandexcloud.net/joke`, 'GET')
+                sendRequest(`${path}/joke`, 'GET')
                     .then(res => res.json())
                     .then(resJSON => {
                         setJoke({
