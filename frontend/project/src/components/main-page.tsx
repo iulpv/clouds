@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './MainPage.css';
+import './main-page.css';
 import {useGetJoke} from "../hooks/get-joke";
 import Joke from "./joke";
 import JokeRating from "./joke-rating";

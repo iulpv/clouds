@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {sendRequest} from "../functions";
-import {JokeType} from "../components/MainPage";
+import {JokeType} from "../components/main-page";
 
 export function useAddLike(joke_id: string | undefined, like: number, setJoke: Function, joke: JokeType | null) {
     useEffect(() => {

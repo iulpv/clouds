@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './add-joke.css'
 import {usePostJoke} from "../hooks/post-joke";
-import MainPage from "./MainPage";
+import MainPage from "./main-page";
 
 
 export type UserJoke = {
